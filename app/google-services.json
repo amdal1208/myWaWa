@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "862501735156",
+    "firebase_url": "https://mywawa-3809d.firebaseio.com",
+    "project_id": "mywawa-3809d",
+    "storage_bucket": "mywawa-3809d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862501735156:android:175485be3c46d0f4",
+        "android_client_info": {
+          "package_name": "mywawa.hunter123321000.com.mywawa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862501735156-1nfqssevsm4rgd5j9fjnt19v8uei0k0p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mywawa.hunter123321000.com.mywawa",
+            "certificate_hash": "1aed97ecf8a7360a9b8972714bbcf9887ca90a6b"
+          }
+        },
+        {
+          "client_id": "862501735156-umj1qkpqkv13dafq3hsddsdtg2dbdpde.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAleWwd4rX-JRblnG14rHwacTWRuW--yIM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862501735156-umj1qkpqkv13dafq3hsddsdtg2dbdpde.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
