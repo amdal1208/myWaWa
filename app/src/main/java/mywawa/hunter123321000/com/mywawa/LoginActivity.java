@@ -40,6 +40,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,6 +109,23 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 attemptLogin();
             }
         });
+        Button btn_signup = (Button) findViewById(R.id.btn_signup);
+        btn_signup.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Store values at the time of the login attempt.
+                email = mEmailView.getText().toString();
+                password = mPasswordView.getText().toString();
+
+                signUpUser(email,password);
+                userInfo = new UserInfo(email,password, FirebaseInstanceId.getInstance().getToken());
+                mAuth.addAuthStateListener(mAuthListener);
+
+                FirebaseUser user = mAuth.getCurrentUser();
+                myRef = FirebaseDatabase.getInstance().getReference();
+                myRef.child("user").child(user.getUid()).setValue(userInfo);
+            }
+        });
         Button btn_goPhoneAuth = (Button) findViewById(R.id.btn_goPhoneAuth);
         btn_goPhoneAuth.setOnClickListener(new OnClickListener() {
             @Override
@@ -132,9 +150,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 //                    startActivity(new Intent(getApplicationContext(),UserProfile.class));
 //                    finish();
                     Log.d("0.0", "onAuthStateChanged:signed_in:" + user.getUid());
-                    myRef = FirebaseDatabase.getInstance().getReference();
+//                    myRef = FirebaseDatabase.getInstance().getReference();
                     Log.i("0.0","userInfo="+userInfo);
-                    myRef.child("user").child(user.getUid()).setValue(userInfo);
+//                    myRef.child("user").child(user.getUid()).setValue(userInfo);
+                    Log.i("0.0","getUid="+user.getUid());
                 }
                 else {
                     //user is signed out
@@ -266,9 +285,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                 Log.w("0.0", "signInWithEmail:failed", task.getException());
                                 Toast.makeText(LoginActivity.this, R.string.auth_failed,
                                         Toast.LENGTH_SHORT).show();
-                                signUpUser(email,password);
-                                userInfo = new UserInfo(email,password);
-                                mAuth.addAuthStateListener(mAuthListener);
                             }else{
                                 myRef.addValueEventListener(new ValueEventListener() {
                                     @Override

@@ -5,14 +5,23 @@ package mywawa.hunter123321000.com.mywawa;
  */
 
 public class UserInfo {
-    private String email,password;
+    private String email,password,notificationToken;
 
     public UserInfo() {
     }
 
-    public UserInfo(String email, String password) {
+    public UserInfo(String email, String password, String notificationToken) {
         this.email = email;
         this.password = password;
+        this.notificationToken = notificationToken;
+    }
+
+    public String getnotificationToken() {
+        return notificationToken;
+    }
+
+    public void setnotificationToken(String notificationToken) {
+        this.notificationToken = notificationToken;
     }
 
     public void setEmail(String email) {
