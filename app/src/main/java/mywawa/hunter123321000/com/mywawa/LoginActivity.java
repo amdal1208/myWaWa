@@ -147,8 +147,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user!= null){
                     //user is signed in
-//                    startActivity(new Intent(getApplicationContext(),UserProfile.class));
-//                    finish();
+                    startActivity(new Intent(getApplicationContext(),MachineActivity.class));
+                    finish();
                     Log.d("0.0", "onAuthStateChanged:signed_in:" + user.getUid());
 //                    myRef = FirebaseDatabase.getInstance().getReference();
                     Log.i("0.0","userInfo="+userInfo);
