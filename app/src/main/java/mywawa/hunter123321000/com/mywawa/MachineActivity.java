@@ -1,9 +1,12 @@
 package mywawa.hunter123321000.com.mywawa;
 
 import android.os.Bundle;
+import android.support.annotation.StringDef;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -41,6 +44,13 @@ public class MachineActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         reference = FirebaseDatabase.getInstance().getReference(Machine.REF_EXPENSES);
 
+        recyclerView.setHasFixedSize(false);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setReverseLayout(false);
+        recyclerView.setLayoutManager(manager);
+
+
+
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -62,6 +72,7 @@ public class MachineActivity extends AppCompatActivity {
         };
 
         recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
     public static class machineHolder extends RecyclerView.ViewHolder {
         private final TextView textViewDate;
@@ -74,10 +85,8 @@ public class MachineActivity extends AppCompatActivity {
         }
 
         public void setValues(Machine machine){
-        textViewDate.setText(machine.getStr_giftOut());
-        textViewItem.setText(machine.getI_account());
-//            textViewDate.setText("123");
-//            textViewItem.setText("456");
+        textViewDate.setText(String.valueOf(machine.getAccount()));
+        textViewItem.setText(machine.getGiftOut()+"剩下物品"+machine.getGiftIn());
         }
     }
 }

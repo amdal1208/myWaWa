@@ -6,41 +6,42 @@ package mywawa.hunter123321000.com.mywawa;
 
 public class Machine {
     public static final String REF_EXPENSES = "machine";
-    String str_giftIn;
-    String str_giftOut;
-    int i_account;
+    String giftIn;
+    String giftOut;
+    int account;
 
     public Machine() {
 
     }
 
-    public Machine(String str_giftIn, String str_giftOut, int i_account) {
-        this.str_giftIn = str_giftIn;
-        this.str_giftOut = str_giftOut;
-        this.i_account = i_account;
+    public Machine(String giftIn, String giftOut, int account) {
+        this.giftIn = giftIn;
+        this.giftOut = giftOut;
+        this.account = account;
     }
 
-    public String getStr_giftIn() {
-        return str_giftIn;
+    public void setGiftIn(String giftIn) {
+        this.giftIn = giftIn;
     }
 
-    public String getStr_giftOut() {
-        return str_giftOut;
+    public void setGiftOut(String giftOut) {
+        this.giftOut = giftOut;
     }
 
-    public int getI_account() {
-        return i_account;
+    public void setAccount(int account) {
+        this.account = account;
     }
 
-    public void setStr_giftIn(String str_giftIn) {
-        this.str_giftIn = str_giftIn;
+    public String getGiftIn() {
+
+        return giftIn;
     }
 
-    public void setStr_giftOut(String str_giftOut) {
-        this.str_giftOut = str_giftOut;
+    public String getGiftOut() {
+        return giftOut;
     }
 
-    public void setI_account(int i_account) {
-        this.i_account = i_account;
+    public int getAccount() {
+        return account;
     }
 }
