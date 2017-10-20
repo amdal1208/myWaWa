@@ -6,25 +6,25 @@ package mywawa.hunter123321000.com.mywawa;
 
 public class Machine {
     public static final String REF_EXPENSES = "machine";
-    String giftIn;
-    String giftOut;
+    int giftIn;
+    int giftOut;
     int account;
 
     public Machine() {
 
     }
 
-    public Machine(String giftIn, String giftOut, int account) {
+    public Machine(int giftIn, int giftOut, int account) {
         this.giftIn = giftIn;
         this.giftOut = giftOut;
         this.account = account;
     }
 
-    public void setGiftIn(String giftIn) {
+    public void setGiftIn(int giftIn) {
         this.giftIn = giftIn;
     }
 
-    public void setGiftOut(String giftOut) {
+    public void setGiftOut(int giftOut) {
         this.giftOut = giftOut;
     }
 
@@ -32,12 +32,12 @@ public class Machine {
         this.account = account;
     }
 
-    public String getGiftIn() {
+    public int getGiftIn() {
 
         return giftIn;
     }
 
-    public String getGiftOut() {
+    public int getGiftOut() {
         return giftOut;
     }
 
