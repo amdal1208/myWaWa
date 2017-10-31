@@ -67,7 +67,7 @@ public class MachineActivity extends AppCompatActivity {
                 android.R.layout.two_line_list_item, machineHolder.class, reference) {
             @Override
             protected void populateViewHolder(machineHolder viewHolder, Machine machine, int position) {
-                viewHolder.setValues(machine);
+                viewHolder.setValues(position,machine);
             }
         };
 
@@ -84,9 +84,10 @@ public class MachineActivity extends AppCompatActivity {
             textViewItem = (TextView) itemView.findViewById(android.R.id.text2);
         }
 
-        public void setValues(Machine machine){
-        textViewDate.setText(String.valueOf(machine.getAccount()));
-        textViewItem.setText(machine.getGiftOut()+"剩下物品"+machine.getGiftIn());
+        public void setValues(int position,Machine machine){
+            String str_machineId = "00"+String.valueOf(position+1);
+        textViewDate.setText("機器編號："+str_machineId+"，營運金額："+String.valueOf(machine.getAccount()));
+        textViewItem.setText("出貨數量："+machine.getGiftOut()+"，剩餘數量"+machine.getGiftIn());
         }
     }
 }
